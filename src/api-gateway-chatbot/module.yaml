@@ -1,0 +1,61 @@
+metadata:
+  id: "_bmad/api-gateway-chatbot"
+  name: "API Gateway Chatbot Module"
+  version: "1.0.0"
+  author: "BMAD Framework"
+  description: "Interactive chatbot system for API gateways that helps users understand and use APIs based on their environment and programming language"
+  license: "MIT"
+
+features:
+  - api-context-aware: true
+  - multi-language-support: true
+  - environment-detection: true
+  - conversation-persistence: true
+  - real-time-responses: true
+  - code-example-generation: true
+
+components:
+  agents:
+    - api-chatbot.agent.yaml
+
+  workflows:
+    - api-query.workflow.md
+    - setup-api-gateway.workflow.md
+
+  server:
+    - index.js
+    - middleware/
+    - routes/
+
+  utilities:
+    - claude-integration.js
+    - api-context-manager.js
+    - environment-detector.js
+    - response-formatter.js
+
+requirements:
+  - node: ">=20.0.0"
+  - npm: ">=10.0.0"
+  dependencies:
+    - express: "^4.18.0"
+    - cors: "^2.8.5"
+    - body-parser: "^1.20.0"
+    - dotenv: "^16.0.0"
+    - axios: "^1.6.0"
+    - yaml: "^2.3.0"
+
+configuration:
+  port: 3000
+  host: "localhost"
+  timeout: 30000
+  maxContextLength: 4000
+  conversationHistory: 20
+
+api:
+  version: "v1"
+  baseUrl: "/api/v1"
+  endpoints:
+    - /chat
+    - /api-docs
+    - /health
+    - /conversation
